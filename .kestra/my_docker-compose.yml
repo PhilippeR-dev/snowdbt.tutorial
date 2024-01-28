@@ -38,8 +38,8 @@ services:
     environment:
       SECRET_MSSQLUSER: c2E=
       SECRET_MSSQLPWD: eW91clN0cm9uZ0BQYXNzd29yZA==
-      SECRET_SNOWUSER: < Renseigner votre user Snowflake en utilisant base64-encoding >
-      SECRET_SNOWPWD: < Renseigner votre pwd Snowflake en utilisant base64-encoding >
+      SECRET_SNOWUSER: UFJFWQ==
+      SECRET_SNOWPWD: UGhpbG91cnRvaXF1ZTkq
       SECRET_GITUSER: cHJleUBzeW5lcmd5LmZy
       SECRET_GITPWD: UGhpbG91cnRvaXF1ZTI=
       DBT_PROFILES_DIR: /workspaces/snowdbt.tutorial/.dbt/
