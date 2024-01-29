@@ -16,7 +16,7 @@ tasks:
       SELECT DISTINCT REGEXP_SUBSTR(RELATIVE_PATH, '([^/]+)', 1, 1, 'i') AS TABLE_NAME
       FROM DIRECTORY(@{{ vars.database }}.{{ vars.schema }}.{{ vars.stage }})
     fetch: true
-  - id: each
+  - id: each_file
     type: io.kestra.core.tasks.flows.EachSequential
     value: "{{ outputs['select-tables'].rows }}"
     tasks:
@@ -51,7 +51,7 @@ taskDefaults:
   - type: io.kestra.plugin.jdbc.snowflake.Query
     values:
       url: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
-      username: "PREY"
-      password: "Philourtoique9*"
+      username: "{{ secret('SNOWUSER') }}"
+      password: "{{ secret('SNOWPWD') }}"
       role: "SYSADMIN"
       warehouse: "SNOWDBT_XS"

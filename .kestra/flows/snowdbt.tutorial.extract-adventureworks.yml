@@ -2,7 +2,6 @@ id: extract-adventureworks
 namespace: snowdbt.tutorial
 variables:
   dbSource: "AdventureWorks2019"
-  schemaSource: "Sales"
   dbTarget: "SNOWDBT_TUTO"
   schemaTarget: "RAW_DATA"
   stageTarget: "ST_ADWORKS"
@@ -12,9 +11,9 @@ tasks:
     sql: |
       SELECT TABLE_SCHEMA, TABLE_NAME 
       FROM {{ vars.dbSource }}.INFORMATION_SCHEMA.TABLES 
-      WHERE TABLES.TABLE_SCHEMA = '{{ vars.schemaSource }}' AND TABLES.TABLE_TYPE = 'BASE TABLE'
+      WHERE TABLES.TABLE_SCHEMA <> 'dbo' AND TABLES.TABLE_TYPE = 'BASE TABLE'
     fetch: true
-  - id: each
+  - id: each_table
     type: io.kestra.core.tasks.flows.EachSequential
     value: "{{ outputs['select-tables'].rows }}"
     tasks:
@@ -48,20 +47,20 @@ tasks:
 taskDefaults:
   - type: io.kestra.plugin.jdbc.sqlserver.Query
     values:
-      url: jdbc:sqlserver://172.17.0.3:1433;trustServerCertificate=true
-      username: sa
-      password: yourStrong@Password
+      url: jdbc:sqlserver://172.17.0.1:1633;trustServerCertificate=true
+      username: "{{ secret('MSSQLUSER') }}"
+      password: "{{ secret('MSSQLPWD') }}"
   - type: io.kestra.plugin.jdbc.snowflake.Query
     values:
       url: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
-      username: "PREY"
-      password: "Philourtoique9*"
+      username: "{{ secret('SNOWUSER') }}"
+      password: "{{ secret('SNOWPWD') }}"
       role: "SYSADMIN"
       warehouse: "SNOWDBT_XS"
   - type: io.kestra.plugin.jdbc.snowflake.Upload
     values:
       url: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
-      username: "PREY"
-      password: "Philourtoique9*"
+      username: "{{ secret('SNOWUSER') }}"
+      password: "{{ secret('SNOWPWD') }}"
       role: "SYSADMIN"
       warehouse: "SNOWDBT_XS"

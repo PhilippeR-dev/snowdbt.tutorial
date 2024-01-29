@@ -1,0 +1,23 @@
+id: pipeline-extract-load-transform
+namespace: snowdbt.tutorial
+tasks:
+  - id: extract-adventureworks-launch
+    type: io.kestra.core.tasks.flows.Subflow
+    namespace: snowdbt.tutorial
+    flowId: extract-adventureworks
+    wait: true
+    transmitFailed: true
+  - id: load-snowdbt-raw-data-launch
+    type: io.kestra.core.tasks.flows.Subflow
+    namespace: snowdbt.tutorial
+    flowId: load-snowdbt-raw-data
+    wait: true
+    transmitFailed: true  
+  - id: transform-snowdbt-by-dbt-launch
+    type: io.kestra.core.tasks.flows.Subflow
+    namespace: snowdbt.tutorial
+    flowId: transform-snowdbt-by-dbt
+    wait: true
+    transmitFailed: true  
+
+    

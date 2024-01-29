@@ -185,8 +185,11 @@ logs/
 **/.history
 
 ### Kestra ###
-.vscode/my_docker-compose.yml
-.vscode/flows/save/*
+.kestra/my_docker-compose.yml
+.kestra/flows/save/*
 
 ### dbt-coves ###
 .dbt_coves/*
+
+### install ###
+install/mssql/all_save/*
