@@ -1,1 +1,0 @@
-dbt run-operation generate_source --args '{"schema_name": "raw_data", "database_name": "SNOWDBT_TUTO", "generate_columns": true}' > output.txt
