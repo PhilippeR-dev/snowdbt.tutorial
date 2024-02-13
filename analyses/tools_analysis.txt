@@ -1,0 +1,1 @@
+{{ codegen.get_models(directory='staging\\erm\\', prefix='stg_') }} 

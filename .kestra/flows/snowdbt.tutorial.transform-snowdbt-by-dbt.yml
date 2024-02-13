@@ -1,0 +1,59 @@
+id: transform-snowdbt-by-dbt
+namespace: snowdbt.tutorial
+variables:
+  urlsnow: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
+  accountsnow: "ip60316.eu-west-1"
+  databasesnow: "SNOWDBT_TUTO"
+  schemasnow: "MODEL_WRK"
+  rolesnow: "SYSADMIN"
+  warehousesnow: "SNOWDBT_XS"
+  dbtHostProfilesFile: "/workspaces/snowdbt.tutorial/.dbt/profiles.yml"
+  dbtProfilesDir: "./.dbt"
+  dbtParams: ' --target dev --profiles-dir "./.dbt"'
+tasks:
+  - id: dbt_TMS_GROUP
+    type: io.kestra.core.tasks.flows.WorkingDirectory
+    tasks:
+      - id: cloneRepository
+        type: io.kestra.plugin.git.Clone
+        url: https://github.com/PhilippeR-dev/snowdbt.tutorial
+        branch: trunk
+      - id: storeDbtProfileFile
+        type: io.kestra.plugin.scripts.shell.Commands
+        runner: PROCESS
+        commands:
+          - cat {{ vars.dbtHostProfilesFile }} > {{ vars.dbtProfilesDir }}/profiles.yml
+      - id: printFileContent
+        type: io.kestra.plugin.scripts.shell.Commands
+        commands:
+          - echo "$PWD"
+          - ls -a ./.dbt/
+          - cat ./.dbt/profiles.yml
+      - id: CLEAN_DEPS
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt clean --profiles-dir '{{ vars.dbtProfilesDir }}'
+          - dbt deps --profiles-dir '{{ vars.dbtProfilesDir }}'
+      - id: Staging
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt run --select 1_staging {{ vars.dbtParams }}
+      - id: Intermediate
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt run --select 2_intermediate {{ vars.dbtParams }}
+      - id: Marts
+        type: io.kestra.plugin.dbt.cli.DbtCLI
+        commands:
+          - dbt run --select 3_marts {{ vars.dbtParams }}
+
+taskDefaults:
+  - type: io.kestra.plugin.git.Clone
+    values:
+      username: "{{ secret('GITUSER') }}"
+      password: "{{ secret('GITPWD') }}"
+
+  - type: io.kestra.plugin.dbt.cli.DbtCLI
+    values:
+      docker:
+        image: ghcr.io/kestra-io/dbt-snowflake:latest

@@ -1,0 +1,66 @@
+id: extract-adventureworks
+namespace: snowdbt.tutorial
+variables:
+  dbSource: "AdventureWorks2019"
+  dbTarget: "SNOWDBT_TUTO"
+  schemaTarget: "RAW_DATA"
+  stageTarget: "ST_ADWORKS"
+tasks:
+  - id: select-tables
+    type: io.kestra.plugin.jdbc.sqlserver.Query
+    sql: |
+      SELECT TABLE_SCHEMA, TABLE_NAME 
+      FROM {{ vars.dbSource }}.INFORMATION_SCHEMA.TABLES 
+      WHERE TABLES.TABLE_SCHEMA <> 'dbo' AND TABLES.TABLE_TYPE = 'BASE TABLE'
+    fetch: true
+  - id: each_table
+    type: io.kestra.core.tasks.flows.EachSequential
+    value: "{{ outputs['select-tables'].rows }}"
+    tasks:
+      # - id: return
+      #   type: io.kestra.core.tasks.debugs.Return
+      #   format: "{{ taskrun.value }}"
+      - id: select-data-from-table
+        type: io.kestra.plugin.jdbc.sqlserver.Query
+        sql: select * from {{ vars.dbSource }}.{{ json(taskrun.value).TABLE_SCHEMA }}.{{ json(taskrun.value).TABLE_NAME }}
+        fetch: true
+        store: true
+      - id: create-data-json-file
+        type: io.kestra.plugin.serdes.json.JsonWriter
+        from: "{{ outputs['select-data-from-table'][taskrun.value].uri }}"
+      # - id: return
+      #   type: io.kestra.core.tasks.debugs.Return
+      #   format: "{{ outputs['create-data-json-file'][taskrun.value].uri }}"
+      - id: remove-subfolder-stage
+        type: io.kestra.plugin.jdbc.snowflake.Query
+        sql: REMOVE @{{ vars.dbTarget }}.{{ vars.schemaTarget }}.{{ vars.stageTarget }}/{{ json(taskrun.value).TABLE_NAME }}/
+        fetch: true
+      - id: upload-snow
+        type: io.kestra.plugin.jdbc.snowflake.Upload
+        database: "{{ vars.dbTarget }}"
+        schema: "{{ vars.schemaTarget }}"
+        from: "{{ outputs['create-data-json-file'][taskrun.value].uri }}" 
+        stageName: "{{ vars.stageTarget }}"
+        prefix: "{{ json(taskrun.value).TABLE_NAME }}"
+        fileName: "{{ json(taskrun.value).TABLE_NAME }}_{{taskrun.startDate}}.json"
+
+taskDefaults:
+  - type: io.kestra.plugin.jdbc.sqlserver.Query
+    values:
+      url: jdbc:sqlserver://172.17.0.1:1633;trustServerCertificate=true
+      username: "{{ secret('MSSQLUSER') }}"
+      password: "{{ secret('MSSQLPWD') }}"
+  - type: io.kestra.plugin.jdbc.snowflake.Query
+    values:
+      url: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
+      username: "{{ secret('SNOWUSER') }}"
+      password: "{{ secret('SNOWPWD') }}"
+      role: "SYSADMIN"
+      warehouse: "SNOWDBT_XS"
+  - type: io.kestra.plugin.jdbc.snowflake.Upload
+    values:
+      url: "jdbc:snowflake://ip60316.eu-west-1.snowflakecomputing.com"
+      username: "{{ secret('SNOWUSER') }}"
+      password: "{{ secret('SNOWPWD') }}"
+      role: "SYSADMIN"
+      warehouse: "SNOWDBT_XS"

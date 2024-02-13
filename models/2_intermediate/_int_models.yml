@@ -1,0 +1,446 @@
+version: 2
+
+models:
+  - name: int_product
+    description: ""
+    columns:
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: productname
+        data_type: varchar
+        description: ""
+
+      - name: productnumber
+        data_type: varchar
+        description: ""
+
+      - name: makeflag
+        data_type: boolean
+        description: ""
+
+      - name: finishedgoodsflag
+        data_type: boolean
+        description: ""
+
+      - name: color
+        data_type: varchar
+        description: ""
+
+      - name: safetystocklevel
+        data_type: number
+        description: ""
+
+      - name: reorderpoint
+        data_type: number
+        description: ""
+
+      - name: standardcost
+        data_type: number
+        description: ""
+
+      - name: listprice
+        data_type: number
+        description: ""
+
+      - name: size
+        data_type: varchar
+        description: ""
+
+      - name: sizeunitmeasurecode
+        data_type: varchar
+        description: ""
+
+      - name: weightunitmeasurecode
+        data_type: varchar
+        description: ""
+
+      - name: weight
+        data_type: number
+        description: ""
+
+      - name: daystomanufacture
+        data_type: number
+        description: ""
+
+      - name: productline
+        data_type: varchar
+        description: ""
+
+      - name: class
+        data_type: varchar
+        description: ""
+
+      - name: style
+        data_type: varchar
+        description: ""
+
+      - name: productsubcategoryid
+        data_type: number
+        description: ""
+
+      - name: productmodelid
+        data_type: number
+        description: ""
+
+      - name: sellstartdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: sellenddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: discontinueddate
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_person
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: persontype
+        data_type: varchar
+        description: ""
+
+      - name: namestyle
+        data_type: boolean
+        description: ""
+
+      - name: title
+        data_type: varchar
+        description: ""
+
+      - name: firstname
+        data_type: varchar
+        description: ""
+
+      - name: middlename
+        data_type: varchar
+        description: ""
+
+      - name: lastname
+        data_type: varchar
+        description: ""
+
+      - name: suffix
+        data_type: varchar
+        description: ""
+
+      - name: emailpromotion
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: demographics
+        data_type: varchar
+        description: ""
+
+      - name: demographics_xml
+        data_type: object
+        description: ""
+
+      - name: birthdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: maritalstatus
+        data_type: varchar
+        description: ""
+
+      - name: gender
+        data_type: varchar
+        description: ""
+
+      - name: totalchildren
+        data_type: number
+        description: ""
+
+      - name: numberchildrenathome
+        data_type: number
+        description: ""
+
+      - name: houseownerflag
+        data_type: varchar
+        description: ""
+
+      - name: numbercarsowned
+        data_type: number
+        description: ""
+
+      - name: datefirstpurchase
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: commutedistance
+        data_type: varchar
+        description: ""
+
+      - name: education
+        data_type: varchar
+        description: ""
+
+      - name: occupation
+        data_type: varchar
+        description: ""
+
+  - name: int_productcategory
+    description: ""
+    columns:
+      - name: productcategoryid
+        data_type: number
+        description: ""
+
+      - name: productcategory
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_productsubcategory
+    description: ""
+    columns:
+      - name: productsubcategoryid
+        data_type: number
+        description: ""
+
+      - name: productcategoryid
+        data_type: number
+        description: ""
+
+      - name: productsubcategory
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_salesorderheader
+    description: ""
+    columns:
+      - name: salesorderid
+        data_type: number
+        description: ""
+
+      - name: revisionnumber
+        data_type: number
+        description: ""
+
+      - name: orderdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: duedate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: shipdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: status
+        data_type: number
+        description: ""
+
+      - name: onlineorderflag
+        data_type: varchar
+        description: ""
+
+      - name: salesordernumber
+        data_type: varchar
+        description: ""
+
+      - name: purchaseordernumber
+        data_type: varchar
+        description: ""
+
+      - name: accountnumber
+        data_type: varchar
+        description: ""
+
+      - name: customerid
+        data_type: number
+        description: ""
+
+      - name: salespersonid
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: billtoaddressid
+        data_type: number
+        description: ""
+
+      - name: shiptoaddressid
+        data_type: number
+        description: ""
+
+      - name: shipmethodid
+        data_type: number
+        description: ""
+
+      - name: creditcardid
+        data_type: number
+        description: ""
+
+      - name: creditcardapprovalcode
+        data_type: varchar
+        description: ""
+
+      - name: currencyrateid
+        data_type: number
+        description: ""
+
+      - name: subtotal
+        data_type: number
+        description: ""
+
+      - name: taxamt
+        data_type: number
+        description: ""
+
+      - name: freight
+        data_type: number
+        description: ""
+
+      - name: totaldue
+        data_type: number
+        description: ""
+
+      - name: comment
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_countryregion
+    description: ""
+    columns:
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: countryregionname
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_stateprovince
+    description: ""
+    columns:
+      - name: stateprovinceid
+        data_type: number
+        description: ""
+
+      - name: stateprovincecode
+        data_type: varchar
+        description: ""
+
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: isonlystateprovinceflag
+        data_type: boolean
+        description: ""
+
+      - name: statprovincename
+        data_type: varchar
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: int_salesterritory
+    description: ""
+    columns:
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: salesterritoryname
+        data_type: varchar
+        description: ""
+
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: group
+        data_type: varchar
+        description: ""
+
+      - name: salesytd
+        data_type: number
+        description: ""
+
+      - name: saleslastyear
+        data_type: number
+        description: ""
+
+      - name: costytd
+        data_type: number
+        description: ""
+
+      - name: costlastyear
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""

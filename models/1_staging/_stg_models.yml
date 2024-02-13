@@ -1,0 +1,2066 @@
+version: 2
+
+models:
+  - name: stg_raw_data__address
+    description: ""
+    columns:
+      - name: addressid
+        data_type: number
+        description: ""
+
+      - name: addressline1
+        data_type: varchar
+        description: ""
+
+      - name: addressline2
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: postalcode
+        data_type: varchar
+        description: ""
+
+      - name: spatiallocation
+        data_type: varchar
+        description: ""
+
+      - name: stateprovinceid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__addresstype
+    description: ""
+    columns:
+      - name: addresstypeid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__billofmaterials
+    description: ""
+    columns:
+      - name: bomlevel
+        data_type: number
+        description: ""
+
+      - name: billofmaterialsid
+        data_type: number
+        description: ""
+
+      - name: componentid
+        data_type: number
+        description: ""
+
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: perassemblyqty
+        data_type: number
+        description: ""
+
+      - name: productassemblyid
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: unitmeasurecode
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__businessentity
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__businessentityaddress
+    description: ""
+    columns:
+      - name: addressid
+        data_type: number
+        description: ""
+
+      - name: addresstypeid
+        data_type: number
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__businessentitycontact
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: contacttypeid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: personid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__contacttype
+    description: ""
+    columns:
+      - name: contacttypeid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__countryregion
+    description: ""
+    columns:
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__countryregioncurrency
+    description: ""
+    columns:
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: currencycode
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__creditcard
+    description: ""
+    columns:
+      - name: cardnumber
+        data_type: varchar
+        description: ""
+
+      - name: cardtype
+        data_type: varchar
+        description: ""
+
+      - name: creditcardid
+        data_type: number
+        description: ""
+
+      - name: expmonth
+        data_type: number
+        description: ""
+
+      - name: expyear
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__culture
+    description: ""
+    columns:
+      - name: cultureid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__currency
+    description: ""
+    columns:
+      - name: currencycode
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__currencyrate
+    description: ""
+    columns:
+      - name: averagerate
+        data_type: number
+        description: ""
+
+      - name: currencyratedate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: currencyrateid
+        data_type: number
+        description: ""
+
+      - name: endofdayrate
+        data_type: number
+        description: ""
+
+      - name: fromcurrencycode
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: tocurrencycode
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__customer
+    description: ""
+    columns:
+      - name: accountnumber
+        data_type: varchar
+        description: ""
+
+      - name: customerid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: personid
+        data_type: number
+        description: ""
+
+      - name: storeid
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__department
+    description: ""
+    columns:
+      - name: departmentid
+        data_type: number
+        description: ""
+
+      - name: groupname
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__document
+    description: ""
+    columns:
+      - name: changenumber
+        data_type: number
+        description: ""
+
+      - name: document
+        data_type: varchar
+        description: ""
+
+      - name: documentlevel
+        data_type: number
+        description: ""
+
+      - name: documentnode
+        data_type: varchar
+        description: ""
+
+      - name: documentsummary
+        data_type: varchar
+        description: ""
+
+      - name: fileextension
+        data_type: varchar
+        description: ""
+
+      - name: filename
+        data_type: varchar
+        description: ""
+
+      - name: folderflag
+        data_type: boolean
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: owner
+        data_type: number
+        description: ""
+
+      - name: revision
+        data_type: varchar
+        description: ""
+
+      - name: status
+        data_type: number
+        description: ""
+
+      - name: title
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__emailaddress
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: emailaddress
+        data_type: varchar
+        description: ""
+
+      - name: emailaddressid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__employee
+    description: ""
+    columns:
+      - name: birthdate
+        data_type: date
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: currentflag
+        data_type: boolean
+        description: ""
+
+      - name: gender
+        data_type: varchar
+        description: ""
+
+      - name: hiredate
+        data_type: date
+        description: ""
+
+      - name: jobtitle
+        data_type: varchar
+        description: ""
+
+      - name: loginid
+        data_type: varchar
+        description: ""
+
+      - name: maritalstatus
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: nationalidnumber
+        data_type: varchar
+        description: ""
+
+      - name: organizationlevel
+        data_type: number
+        description: ""
+
+      - name: organizationnode
+        data_type: varchar
+        description: ""
+
+      - name: salariedflag
+        data_type: boolean
+        description: ""
+
+      - name: sickleavehours
+        data_type: number
+        description: ""
+
+      - name: vacationhours
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__employeedepartmenthistory
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: departmentid
+        data_type: number
+        description: ""
+
+      - name: enddate
+        data_type: date
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: shiftid
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: date
+        description: ""
+
+  - name: stg_raw_data__employeepayhistory
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: payfrequency
+        data_type: number
+        description: ""
+
+      - name: rate
+        data_type: number
+        description: ""
+
+      - name: ratechangedate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__illustration
+    description: ""
+    columns:
+      - name: diagram
+        data_type: varchar
+        description: ""
+
+      - name: illustrationid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__jobcandidate
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: jobcandidateid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: resume
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__location
+    description: ""
+    columns:
+      - name: availability
+        data_type: number
+        description: ""
+
+      - name: costrate
+        data_type: number
+        description: ""
+
+      - name: locationid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__password
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: passwordhash
+        data_type: varchar
+        description: ""
+
+      - name: passwordsalt
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__person
+    description: ""
+    columns:
+      - name: additionalcontactinfo
+        data_type: varchar
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: demographics
+        data_type: varchar
+        description: ""
+
+      - name: emailpromotion
+        data_type: number
+        description: ""
+
+      - name: firstname
+        data_type: varchar
+        description: ""
+
+      - name: lastname
+        data_type: varchar
+        description: ""
+
+      - name: middlename
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: namestyle
+        data_type: boolean
+        description: ""
+
+      - name: persontype
+        data_type: varchar
+        description: ""
+
+      - name: suffix
+        data_type: varchar
+        description: ""
+
+      - name: title
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__personcreditcard
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: creditcardid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__personphone
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: phonenumber
+        data_type: varchar
+        description: ""
+
+      - name: phonenumbertypeid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__phonenumbertype
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: phonenumbertypeid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__product
+    description: ""
+    columns:
+      - name: class
+        data_type: varchar
+        description: ""
+
+      - name: color
+        data_type: varchar
+        description: ""
+
+      - name: daystomanufacture
+        data_type: number
+        description: ""
+
+      - name: discontinueddate
+        data_type: varchar
+        description: ""
+
+      - name: finishedgoodsflag
+        data_type: boolean
+        description: ""
+
+      - name: listprice
+        data_type: number
+        description: ""
+
+      - name: makeflag
+        data_type: boolean
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: productline
+        data_type: varchar
+        description: ""
+
+      - name: productmodelid
+        data_type: number
+        description: ""
+
+      - name: productnumber
+        data_type: varchar
+        description: ""
+
+      - name: productsubcategoryid
+        data_type: number
+        description: ""
+
+      - name: reorderpoint
+        data_type: number
+        description: ""
+
+      - name: safetystocklevel
+        data_type: number
+        description: ""
+
+      - name: sellenddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: sellstartdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: size
+        data_type: varchar
+        description: ""
+
+      - name: sizeunitmeasurecode
+        data_type: varchar
+        description: ""
+
+      - name: standardcost
+        data_type: number
+        description: ""
+
+      - name: style
+        data_type: varchar
+        description: ""
+
+      - name: weight
+        data_type: number
+        description: ""
+
+      - name: weightunitmeasurecode
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productcategory
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: productcategoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productcosthistory
+    description: ""
+    columns:
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: standardcost
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__productdescription
+    description: ""
+    columns:
+      - name: description
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productdescriptionid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productdocument
+    description: ""
+    columns:
+      - name: documentnode
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__productinventory
+    description: ""
+    columns:
+      - name: bin
+        data_type: number
+        description: ""
+
+      - name: locationid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: shelf
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productlistpricehistory
+    description: ""
+    columns:
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: listprice
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: stg_raw_data__productmodel
+    description: ""
+    columns:
+      - name: catalogdescription
+        data_type: varchar
+        description: ""
+
+      - name: instructions
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: productmodelid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productmodelillustration
+    description: ""
+    columns:
+      - name: illustrationid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productmodelid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__productmodelproductdescriptionculture
+    description: ""
+    columns:
+      - name: cultureid
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productdescriptionid
+        data_type: number
+        description: ""
+
+      - name: productmodelid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__productphoto
+    description: ""
+    columns:
+      - name: largephoto
+        data_type: varchar
+        description: ""
+
+      - name: largephotofilename
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productphotoid
+        data_type: number
+        description: ""
+
+      - name: thumbnailphoto
+        data_type: varchar
+        description: ""
+
+      - name: thumbnailphotofilename
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productproductphoto
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: primary
+        data_type: boolean
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: productphotoid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__productreview
+    description: ""
+    columns:
+      - name: comments
+        data_type: varchar
+        description: ""
+
+      - name: emailaddress
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: productreviewid
+        data_type: number
+        description: ""
+
+      - name: rating
+        data_type: number
+        description: ""
+
+      - name: reviewdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: reviewername
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productsubcategory
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: productcategoryid
+        data_type: number
+        description: ""
+
+      - name: productsubcategoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__productvendor
+    description: ""
+    columns:
+      - name: averageleadtime
+        data_type: number
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: lastreceiptcost
+        data_type: number
+        description: ""
+
+      - name: lastreceiptdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: maxorderqty
+        data_type: number
+        description: ""
+
+      - name: minorderqty
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: onorderqty
+        data_type: number
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: standardprice
+        data_type: number
+        description: ""
+
+      - name: unitmeasurecode
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__purchaseorderdetail
+    description: ""
+    columns:
+      - name: duedate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: linetotal
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: orderqty
+        data_type: number
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: purchaseorderdetailid
+        data_type: number
+        description: ""
+
+      - name: purchaseorderid
+        data_type: number
+        description: ""
+
+      - name: receivedqty
+        data_type: number
+        description: ""
+
+      - name: rejectedqty
+        data_type: number
+        description: ""
+
+      - name: stockedqty
+        data_type: number
+        description: ""
+
+      - name: unitprice
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__purchaseorderheader
+    description: ""
+    columns:
+      - name: employeeid
+        data_type: number
+        description: ""
+
+      - name: freight
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: orderdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: purchaseorderid
+        data_type: number
+        description: ""
+
+      - name: revisionnumber
+        data_type: number
+        description: ""
+
+      - name: shipdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: shipmethodid
+        data_type: number
+        description: ""
+
+      - name: status
+        data_type: number
+        description: ""
+
+      - name: subtotal
+        data_type: number
+        description: ""
+
+      - name: taxamt
+        data_type: number
+        description: ""
+
+      - name: totaldue
+        data_type: number
+        description: ""
+
+      - name: vendorid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__salesorderdetail
+    description: ""
+    columns:
+      - name: carriertrackingnumber
+        data_type: varchar
+        description: ""
+
+      - name: linetotal
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: orderqty
+        data_type: number
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: salesorderdetailid
+        data_type: number
+        description: ""
+
+      - name: salesorderid
+        data_type: number
+        description: ""
+
+      - name: specialofferid
+        data_type: number
+        description: ""
+
+      - name: unitprice
+        data_type: number
+        description: ""
+
+      - name: unitpricediscount
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salesorderheader
+    description: ""
+    columns:
+      - name: accountnumber
+        data_type: varchar
+        description: ""
+
+      - name: billtoaddressid
+        data_type: number
+        description: ""
+
+      - name: comment
+        data_type: varchar
+        description: ""
+
+      - name: creditcardapprovalcode
+        data_type: varchar
+        description: ""
+
+      - name: creditcardid
+        data_type: number
+        description: ""
+
+      - name: currencyrateid
+        data_type: number
+        description: ""
+
+      - name: customerid
+        data_type: number
+        description: ""
+
+      - name: duedate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: freight
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: onlineorderflag
+        data_type: boolean
+        description: ""
+
+      - name: orderdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: purchaseordernumber
+        data_type: varchar
+        description: ""
+
+      - name: revisionnumber
+        data_type: number
+        description: ""
+
+      - name: salesorderid
+        data_type: number
+        description: ""
+
+      - name: salesordernumber
+        data_type: varchar
+        description: ""
+
+      - name: salespersonid
+        data_type: number
+        description: ""
+
+      - name: shipdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: shipmethodid
+        data_type: number
+        description: ""
+
+      - name: shiptoaddressid
+        data_type: number
+        description: ""
+
+      - name: status
+        data_type: number
+        description: ""
+
+      - name: subtotal
+        data_type: number
+        description: ""
+
+      - name: taxamt
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: totaldue
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salesorderheadersalesreason
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: salesorderid
+        data_type: number
+        description: ""
+
+      - name: salesreasonid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__salesperson
+    description: ""
+    columns:
+      - name: bonus
+        data_type: number
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: commissionpct
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: saleslastyear
+        data_type: number
+        description: ""
+
+      - name: salesquota
+        data_type: number
+        description: ""
+
+      - name: salesytd
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salespersonquotahistory
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: quotadate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: salesquota
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salesreason
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: reasontype
+        data_type: varchar
+        description: ""
+
+      - name: salesreasonid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__salestaxrate
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: salestaxrateid
+        data_type: number
+        description: ""
+
+      - name: stateprovinceid
+        data_type: number
+        description: ""
+
+      - name: taxrate
+        data_type: number
+        description: ""
+
+      - name: taxtype
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salesterritory
+    description: ""
+    columns:
+      - name: costlastyear
+        data_type: number
+        description: ""
+
+      - name: costytd
+        data_type: number
+        description: ""
+
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: group
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: saleslastyear
+        data_type: number
+        description: ""
+
+      - name: salesytd
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__salesterritoryhistory
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__scrapreason
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: scrapreasonid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__shift
+    description: ""
+    columns:
+      - name: endtime
+        data_type: time
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: shiftid
+        data_type: number
+        description: ""
+
+      - name: starttime
+        data_type: time
+        description: ""
+
+  - name: stg_raw_data__shipmethod
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: shipbase
+        data_type: number
+        description: ""
+
+      - name: shipmethodid
+        data_type: number
+        description: ""
+
+      - name: shiprate
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__shoppingcartitem
+    description: ""
+    columns:
+      - name: datecreated
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: shoppingcartid
+        data_type: varchar
+        description: ""
+
+      - name: shoppingcartitemid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__specialoffer
+    description: ""
+    columns:
+      - name: category
+        data_type: varchar
+        description: ""
+
+      - name: description
+        data_type: varchar
+        description: ""
+
+      - name: discountpct
+        data_type: number
+        description: ""
+
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: maxqty
+        data_type: number
+        description: ""
+
+      - name: minqty
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: specialofferid
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: type
+        data_type: varchar
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__specialofferproduct
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: specialofferid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__stateprovince
+    description: ""
+    columns:
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: isonlystateprovinceflag
+        data_type: boolean
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: stateprovincecode
+        data_type: varchar
+        description: ""
+
+      - name: stateprovinceid
+        data_type: number
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__store
+    description: ""
+    columns:
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: demographics
+        data_type: varchar
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: salespersonid
+        data_type: number
+        description: ""
+
+      - name: rowguid
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__transactionhistory
+    description: ""
+    columns:
+      - name: actualcost
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: referenceorderid
+        data_type: number
+        description: ""
+
+      - name: referenceorderlineid
+        data_type: number
+        description: ""
+
+      - name: transactiondate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: transactionid
+        data_type: number
+        description: ""
+
+      - name: transactiontype
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__transactionhistoryarchive
+    description: ""
+    columns:
+      - name: actualcost
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      - name: referenceorderid
+        data_type: number
+        description: ""
+
+      - name: referenceorderlineid
+        data_type: number
+        description: ""
+
+      - name: transactiondate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: transactionid
+        data_type: number
+        description: ""
+
+      - name: transactiontype
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__unitmeasure
+    description: ""
+    columns:
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: unitmeasurecode
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__vendor
+    description: ""
+    columns:
+      - name: accountnumber
+        data_type: varchar
+        description: ""
+
+      - name: activeflag
+        data_type: boolean
+        description: ""
+
+      - name: businessentityid
+        data_type: number
+        description: ""
+
+      - name: creditrating
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: preferredvendorstatus
+        data_type: boolean
+        description: ""
+
+      - name: purchasingwebserviceurl
+        data_type: varchar
+        description: ""
+
+  - name: stg_raw_data__workorder
+    description: ""
+    columns:
+      - name: duedate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: enddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: orderqty
+        data_type: number
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: scrapreasonid
+        data_type: number
+        description: ""
+
+      - name: scrappedqty
+        data_type: number
+        description: ""
+
+      - name: startdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: stockedqty
+        data_type: number
+        description: ""
+
+      - name: workorderid
+        data_type: number
+        description: ""
+
+  - name: stg_raw_data__workorderrouting
+    description: ""
+    columns:
+      - name: actualcost
+        data_type: number
+        description: ""
+
+      - name: actualenddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: actualresourcehrs
+        data_type: number
+        description: ""
+
+      - name: actualstartdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: locationid
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: operationsequence
+        data_type: number
+        description: ""
+
+      - name: plannedcost
+        data_type: number
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: scheduledenddate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: scheduledstartdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: workorderid
+        data_type: number
+        description: ""
