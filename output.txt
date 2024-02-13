@@ -1,0 +1,495 @@
+[0m23:04:01  Running with dbt=1.6.9
+[0m23:04:01  Registered adapter: snowflake=1.6.6
+[0m23:04:02  Found 85 models, 3 seeds, 87 sources, 0 exposures, 0 metrics, 608 macros, 0 groups, 0 semantic models
+[0m23:04:03  version: 2
+
+models:
+  - name: dimaddress
+    description: ""
+    columns:
+      - name: address_key
+        data_type: varchar
+        description: ""
+
+      - name: addressid
+        data_type: number
+        description: ""
+
+      - name: city_name
+        data_type: varchar
+        description: ""
+
+      - name: postalcode
+        data_type: varchar
+        description: ""
+
+      - name: addressline
+        data_type: varchar
+        description: ""
+
+      - name: state_name
+        data_type: varchar
+        description: ""
+
+      - name: country_name
+        data_type: varchar
+        description: ""
+
+  - name: dimcustomer
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: varchar
+        description: ""
+
+      - name: customerid
+        data_type: number
+        description: ""
+
+      - name: personbusinessentityid
+        data_type: number
+        description: ""
+
+      - name: title
+        data_type: varchar
+        description: ""
+
+      - name: fullname
+        data_type: varchar
+        description: ""
+
+      - name: houseownerflag
+        data_type: varchar
+        description: ""
+
+      - name: occupation
+        data_type: varchar
+        description: ""
+
+      - name: maritalstatus
+        data_type: varchar
+        description: ""
+
+      - name: commutedistance
+        data_type: varchar
+        description: ""
+
+      - name: education
+        data_type: varchar
+        description: ""
+
+      - name: numbercarsowned
+        data_type: number
+        description: ""
+
+      - name: totalchildren
+        data_type: number
+        description: ""
+
+      - name: birthdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: datefirstpurchase
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: country
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: state
+        data_type: varchar
+        description: ""
+
+      - name: postalcode
+        data_type: varchar
+        description: ""
+
+      - name: addressline1
+        data_type: varchar
+        description: ""
+
+      - name: addressline2
+        data_type: varchar
+        description: ""
+
+  - name: dimdate
+    description: ""
+    columns:
+      - name: date_key
+        data_type: varchar
+        description: ""
+
+      - name: date_day
+        data_type: date
+        description: ""
+
+      - name: prior_date_day
+        data_type: date
+        description: ""
+
+      - name: next_date_day
+        data_type: date
+        description: ""
+
+      - name: prior_year_date_day
+        data_type: date
+        description: ""
+
+      - name: prior_year_over_year_date_day
+        data_type: date
+        description: ""
+
+      - name: day_of_week
+        data_type: number
+        description: ""
+
+      - name: day_of_week_iso
+        data_type: number
+        description: ""
+
+      - name: day_of_week_name
+        data_type: varchar
+        description: ""
+
+      - name: day_of_week_name_short
+        data_type: varchar
+        description: ""
+
+      - name: day_of_month
+        data_type: number
+        description: ""
+
+      - name: day_of_year
+        data_type: number
+        description: ""
+
+      - name: week_start_date
+        data_type: date
+        description: ""
+
+      - name: week_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_week_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_week_end_date
+        data_type: date
+        description: ""
+
+      - name: week_of_year
+        data_type: number
+        description: ""
+
+      - name: iso_week_start_date
+        data_type: date
+        description: ""
+
+      - name: iso_week_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_iso_week_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_iso_week_end_date
+        data_type: date
+        description: ""
+
+      - name: iso_week_of_year
+        data_type: number
+        description: ""
+
+      - name: prior_year_week_of_year
+        data_type: number
+        description: ""
+
+      - name: prior_year_iso_week_of_year
+        data_type: number
+        description: ""
+
+      - name: month_of_year
+        data_type: number
+        description: ""
+
+      - name: month_name
+        data_type: varchar
+        description: ""
+
+      - name: month_name_short
+        data_type: varchar
+        description: ""
+
+      - name: month_start_date
+        data_type: date
+        description: ""
+
+      - name: month_end_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_month_start_date
+        data_type: date
+        description: ""
+
+      - name: prior_year_month_end_date
+        data_type: date
+        description: ""
+
+      - name: quarter_of_year
+        data_type: number
+        description: ""
+
+      - name: quarter_start_date
+        data_type: date
+        description: ""
+
+      - name: quarter_end_date
+        data_type: date
+        description: ""
+
+      - name: year_number
+        data_type: number
+        description: ""
+
+      - name: year_start_date
+        data_type: date
+        description: ""
+
+      - name: year_end_date
+        data_type: date
+        description: ""
+
+      - name: fulldt
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: dulldtz
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: dulldtzt
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: test
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: direct_dts
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: ts_utc
+        data_type: timestamp_ltz
+        description: ""
+
+  - name: dimorderstatus
+    description: ""
+    columns:
+      - name: order_status_key
+        data_type: varchar
+        description: ""
+
+      - name: order_status
+        data_type: number
+        description: ""
+
+      - name: order_status_name
+        data_type: varchar
+        description: ""
+
+  - name: dimterritory
+    description: ""
+    columns:
+      - name: territory_key
+        data_type: varchar
+        description: ""
+
+      - name: territoryid
+        data_type: number
+        description: ""
+
+      - name: salesterritoryname
+        data_type: varchar
+        description: ""
+
+      - name: territory_group
+        data_type: varchar
+        description: ""
+
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+
+      - name: costytd
+        data_type: number
+        description: ""
+
+      - name: salesytd
+        data_type: number
+        description: ""
+
+      - name: costlastyear
+        data_type: number
+        description: ""
+
+      - name: saleslastyear
+        data_type: number
+        description: ""
+
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: dimproduct
+    description: ""
+    columns:
+      - name: product_key
+        data_type: varchar
+        description: ""
+
+      - name: productid
+        data_type: number
+        description: ""
+
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: productnumber
+        data_type: varchar
+        description: ""
+
+      - name: color
+        data_type: varchar
+        description: ""
+
+      - name: daystomanufacture
+        data_type: number
+        description: ""
+
+      - name: safetystocklevel
+        data_type: number
+        description: ""
+
+      - name: standardcost
+        data_type: number
+        description: ""
+
+      - name: product_subcategory_name
+        data_type: varchar
+        description: ""
+
+      - name: product_category_name
+        data_type: varchar
+        description: ""
+
+      - name: sellstartdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: sellenddate
+        data_type: timestamp_ntz
+        description: ""
+
+  - name: fctsales
+    description: ""
+    columns:
+      - name: sales_key
+        data_type: varchar
+        description: ""
+
+      - name: product_key
+        data_type: varchar
+        description: ""
+
+      - name: customer_key
+        data_type: varchar
+        description: ""
+
+      - name: creditcard_key
+        data_type: varchar
+        description: ""
+
+      - name: ship_address_key
+        data_type: varchar
+        description: ""
+
+      - name: order_status_key
+        data_type: varchar
+        description: ""
+
+      - name: order_date_key
+        data_type: varchar
+        description: ""
+
+      - name: ship_date_key
+        data_type: varchar
+        description: ""
+
+      - name: due_date_key
+        data_type: varchar
+        description: ""
+
+      - name: territory_key
+        data_type: varchar
+        description: ""
+
+      - name: orderdate
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: onlineorderflag
+        data_type: varchar
+        description: ""
+
+      - name: unitpricediscount
+        data_type: number
+        description: ""
+
+      - name: salesordernumber
+        data_type: varchar
+        description: ""
+
+      - name: salesorderid
+        data_type: number
+        description: ""
+
+      - name: salesorderdetailid
+        data_type: number
+        description: ""
+
+      - name: unitprice
+        data_type: number
+        description: ""
+
+      - name: orderqty
+        data_type: number
+        description: ""
+
+      - name: revenue
+        data_type: number
+        description: ""
+
+      - name: salesamount
+        data_type: number
+        description: ""
+
+      - name: totaldiscount
+        data_type: number
+        description: ""
+
+      - name: taxamt
+        data_type: number
+        description: ""
+

@@ -1,0 +1,498 @@
+version: 2
+models:
+  - name: dim_address
+    description: The 'dim_address' model is a dimension table that combines data
+      from the 'stg_raw_data__address' table with the 'int_stateprovince' and
+      'int_countryregion' tables to provide a comprehensive view of addresses
+      for analytical purposes.
+    columns:
+      - name: ADDRESS_KEY
+        description: A unique identifier for each address record, generated using the
+          MD5 hash function. This key can be used for data aggregation,
+          deduplication, and record linkage in analytical scenarios.
+        data_type: VARCHAR
+      - name: ADDRESSID
+        description: The unique identifier for each address in the dataset. This column
+          serves as the primary key for the 'dim_address' table and can be used
+          to track individual addresses in analytical scenarios.
+        data_type: NUMBER
+      - name: CITY_NAME
+        description: The name of the city where the address is located. This column
+          provides information about the geographical location of the address
+          and can be used for various analytical scenarios.
+        data_type: VARCHAR
+      - name: POSTALCODE
+        description: The unique identifier assigned to a geographic area for sorting and
+          delivering mail. Useful for analyzing customer distribution,
+          calculating distance between locations, and segmenting data based on
+          regions.
+        data_type: VARCHAR
+      - name: ADDRESSLINE
+        description: The complete address including street address and additional
+          information. Useful for geocoding, data visualization, and mapping
+          purposes.
+        data_type: VARCHAR
+      - name: STATE_NAME
+        description: The name of the state or province associated with the address. This
+          column provides information about the geographical location of the
+          address and can be used for various analytical scenarios.
+        data_type: VARCHAR
+      - name: COUNTRY_NAME
+        description: The name of the country where the address is located. This column
+          provides information about the geographic location of the address and
+          can be used for various analytical scenarios.
+        data_type: VARCHAR
+  - name: dim_customer
+    description: This model creates a dimension table that contains information
+      about customers, including their personal and address details.
+    columns:
+      - name: customer_key
+        data_type: varchar
+        description: A unique identifier for each customer, generated using the MD5 hash
+          function on the customerid column. Useful for data integrity checks
+          and customer-level analysis.
+      - name: customerid
+        data_type: number
+        description: The unique identifier for each customer. This column is essential
+          for tracking and identifying individual customers in the dataset. It
+          can be used as a primary key to join with other tables and perform
+          customer-level analysis.
+      - name: personbusinessentityid
+        data_type: number
+        description: The unique identifier for the person associated with the customer.
+          This key can be used to analyze customer behavior and preferences.
+      - name: title
+        data_type: varchar
+        description: ""
+      - name: fullname
+        data_type: varchar
+        description: The full name of the customer, useful for identifying and
+          addressing customers in reports and analysis.
+      - name: houseownerflag
+        data_type: varchar
+        description: Binary flag indicating whether the customer owns a house or not.
+          Can be used to analyze customer behavior and preferences, and identify
+          potential target audiences for mortgage or insurance products.
+      - name: occupation
+        data_type: varchar
+        description: The occupation of the customer, providing insights into their job
+          or profession for analyzing customer preferences and behaviors.
+      - name: maritalstatus
+        data_type: varchar
+        description: The marital status of the customer, providing insights into
+          customer demographics and behavior for segmentation and targeted
+          marketing.
+      - name: commutedistance
+        data_type: varchar
+        description: The distance that the customer commutes to work. This column
+          provides insights into customer commuting behavior and can be used to
+          analyze the impact of distance on purchasing patterns and preferences.
+      - name: education
+        data_type: varchar
+        description: The level of education attained by the customer. This column can be
+          used to analyze the relationship between education and various factors
+          such as purchasing behavior and occupation.
+      - name: numbercarsowned
+        data_type: number
+        description: The number of cars owned by the customer. This column provides
+          insights into the customer's purchasing power and can be used for
+          segmentation and analysis of car-related preferences and behaviors.
+      - name: totalchildren
+        data_type: number
+        description: The total number of children associated with the customer. This
+          column provides insights into family size and can be used to analyze
+          customer segments based on the number of children they have.
+      - name: birthdate
+        data_type: timestamp_ntz
+        description: The birthdate of the customer. Can be used to calculate the age of
+          the customer and analyze customer behavior based on different age
+          groups.
+      - name: datefirstpurchase
+        data_type: timestamp_ntz
+        description: The date when the customer made their first purchase. This column
+          is useful for analyzing customer behavior and loyalty.
+      - name: country
+        data_type: varchar
+        description: The country where the customer resides. This column can be used to
+          analyze customer distribution by country and identify trends or
+          patterns in customer behavior based on their country of residence.
+      - name: city
+        data_type: varchar
+        description: The city where the customer resides. Can be used to analyze
+          customer distribution and regional preferences.
+      - name: state
+        data_type: varchar
+        description: The state or province associated with the customer's address.
+          Useful for analyzing customer distribution and identifying target
+          markets based on geographical location.
+      - name: postalcode
+        data_type: varchar
+        description: The postal code associated with the customer's address. It provides
+          geographic location information for analyzing customer distribution,
+          identifying areas with high customer concentration, and targeting
+          marketing campaigns.
+      - name: addressline1
+        data_type: varchar
+        description: The first line of the customer's address. It provides the physical
+          location of the customer's residence or business and can be used for
+          analyzing customer distribution and segmentation based on geographical
+          location.
+      - name: addressline2
+        data_type: varchar
+        description: The second line of the customer's address, providing additional
+          information about their location. Can be used to segment customers
+          based on living arrangements or identify specific units within a
+          building.
+  - name: dim_date
+    description: The 'dim_date' dbt model creates a date dimension table with a full
+      range of dates from '2011-01-01' to '2014-12-31' and includes various
+      derived columns for time-based analysis and reporting in the data
+      warehouse.
+    columns:
+      - name: date_key
+        data_type: varchar
+        description: Unique identifier for each date in the dim_date table, generated
+          using the MD5 hash function on the direct_dts column. Can be used as a
+          surrogate key for joining and aggregating data related to specific
+          dates in analytical scenarios.
+      - name: date_day
+        data_type: date
+        description: The date_day column represents the date in the format of
+          TIMESTAMPNTZ. It serves as the primary key for the dim_date table and
+          is essential for time-based analysis and reporting.
+      - name: prior_date_day
+        data_type: date
+        description: The date of the previous day in the date dimension. Useful for
+          analyzing daily trends and calculating changes over time.
+      - name: next_date_day
+        data_type: date
+        description: The date of the next day in the date dimension. Useful for
+          time-based calculations and analysis, such as tracking daily changes
+          in data or identifying trends over time.
+      - name: prior_year_date_day
+        data_type: date
+        description: The date from the previous year corresponding to the 'date_day'
+          column. Useful for year-over-year analysis and identifying trends and
+          patterns in business performance.
+      - name: prior_year_over_year_date_day
+        data_type: date
+        description: The date of the corresponding day in the prior year, useful for
+          year-over-year analysis and identifying trends and patterns over time.
+      - name: day_of_week
+        data_type: number
+        description: The day of the week represented as an integer, where Sunday is 1
+          and Saturday is 7. This column can be used to analyze patterns and
+          trends based on the day of the week.
+      - name: day_of_week_iso
+        data_type: number
+        description: The day of the week represented as a number, following the ISO-8601
+          standard. This column can be used to analyze weekly patterns and
+          trends in the data.
+      - name: day_of_week_name
+        data_type: varchar
+        description: The name of the day of the week corresponding to the date. This
+          column can be used to analyze and understand patterns or trends based
+          on the day of the week.
+      - name: day_of_week_name_short
+        data_type: varchar
+        description: Abbreviated name of the day of the week. Useful for analyzing
+          patterns or trends specific to certain days of the week.
+      - name: day_of_month
+        data_type: number
+        description: The day of the month represented as an integer. This column can be
+          used to analyze trends or patterns based on specific days of the
+          month, such as sales performance on weekends versus weekdays or
+          customer behavior on certain days.
+      - name: day_of_year
+        data_type: number
+        description: The day of the year represented as an integer value. Useful for
+          analyzing seasonal patterns and trends, such as identifying peak
+          seasons or comparing performance between different years on the same
+          day.
+      - name: week_start_date
+        data_type: date
+        description: The start date of a week, useful for analyzing weekly trends and
+          patterns in data.
+      - name: week_end_date
+        data_type: date
+        description: The end date of each week in the date dimension, useful for
+          analyzing weekly trends and aggregating data at a weekly level.
+      - name: prior_year_week_start_date
+        data_type: date
+        description: ""
+      - name: prior_year_week_end_date
+        data_type: date
+        description: The end date of a week in the prior year, useful for comparing
+          year-over-year trends and identifying changes in data.
+      - name: week_of_year
+        data_type: number
+        description: The week_of_year column represents the week number within a year.
+          It is useful for analyzing weekly trends and patterns in data.
+      - name: iso_week_start_date
+        data_type: date
+        description: The start date of the ISO week, useful for analyzing weekly trends
+          and aggregating data by week.
+      - name: iso_week_end_date
+        data_type: date
+        description: The end date of the ISO week, useful for analyzing weekly trends
+          and aggregating data at a weekly level.
+      - name: prior_year_iso_week_start_date
+        data_type: date
+        description: ""
+      - name: prior_year_iso_week_end_date
+        data_type: date
+        description: ""
+      - name: iso_week_of_year
+        data_type: number
+        description: ""
+      - name: prior_year_week_of_year
+        data_type: number
+        description: ""
+      - name: prior_year_iso_week_of_year
+        data_type: number
+        description: ""
+      - name: month_of_year
+        data_type: number
+        description: ""
+      - name: month_name
+        data_type: varchar
+        description: ""
+      - name: month_name_short
+        data_type: varchar
+        description: ""
+      - name: month_start_date
+        data_type: date
+        description: ""
+      - name: month_end_date
+        data_type: date
+        description: ""
+      - name: prior_year_month_start_date
+        data_type: date
+        description: ""
+      - name: prior_year_month_end_date
+        data_type: date
+        description: ""
+      - name: quarter_of_year
+        data_type: number
+        description: ""
+      - name: quarter_start_date
+        data_type: date
+        description: ""
+      - name: quarter_end_date
+        data_type: date
+        description: ""
+      - name: year_number
+        data_type: number
+        description: ""
+      - name: year_start_date
+        data_type: date
+        description: ""
+      - name: year_end_date
+        data_type: date
+        description: ""
+      - name: fulldt
+        data_type: timestamp_ntz
+        description: ""
+      - name: dulldtz
+        data_type: timestamp_ntz
+        description: ""
+      - name: dulldtzt
+        data_type: timestamp_ntz
+        description: ""
+      - name: test
+        data_type: timestamp_ntz
+        description: ""
+      - name: direct_dts
+        data_type: timestamp_ntz
+        description: ""
+      - name: ts_utc
+        data_type: timestamp_ltz
+        description: ""
+  - name: dim_orderstatus
+    description: ""
+    columns:
+      - name: order_status_key
+        data_type: varchar
+        description: ""
+      - name: order_status
+        data_type: number
+        description: ""
+      - name: order_status_name
+        data_type: varchar
+        description: ""
+  - name: dim_territory
+    description: ""
+    columns:
+      - name: territory_key
+        data_type: varchar
+        description: ""
+      - name: territoryid
+        data_type: number
+        description: ""
+      - name: salesterritoryname
+        data_type: varchar
+        description: ""
+      - name: territory_group
+        data_type: varchar
+        description: ""
+      - name: countryregioncode
+        data_type: varchar
+        description: ""
+      - name: costytd
+        data_type: number
+        description: ""
+      - name: salesytd
+        data_type: number
+        description: ""
+      - name: costlastyear
+        data_type: number
+        description: ""
+      - name: saleslastyear
+        data_type: number
+        description: ""
+      - name: modifieddate
+        data_type: timestamp_ntz
+        description: ""
+  - name: dim_product
+    description: ""
+    columns:
+      - name: product_key
+        data_type: varchar
+        description: ""
+      - name: productid
+        data_type: number
+        description: ""
+      - name: product_name
+        data_type: varchar
+        description: ""
+      - name: productnumber
+        data_type: varchar
+        description: ""
+      - name: color
+        data_type: varchar
+        description: ""
+      - name: daystomanufacture
+        data_type: number
+        description: ""
+      - name: safetystocklevel
+        data_type: number
+        description: ""
+      - name: standardcost
+        data_type: number
+        description: ""
+      - name: product_subcategory_name
+        data_type: varchar
+        description: ""
+      - name: product_category_name
+        data_type: varchar
+        description: ""
+      - name: sellstartdate
+        data_type: timestamp_ntz
+        description: ""
+      - name: sellenddate
+        data_type: timestamp_ntz
+        description: ""
+  - name: fct_sales
+    description: This model combines sales order details with customer, product, and
+      order information to create a comprehensive sales dataset.
+    columns:
+      - name: sales_key
+        data_type: varchar
+        description: A unique identifier for each sales order detail record, used for
+          data integrity and joining with other tables.
+      - name: product_key
+        data_type: varchar
+        description: A unique identifier for each product, useful for joining and
+          aggregating data at the product level.
+      - name: customer_key
+        data_type: varchar
+        description: A unique identifier for each customer, used for joining and
+          aggregating data in analytical scenarios.
+      - name: creditcard_key
+        data_type: varchar
+        description: A unique identifier for each credit card used in the sales
+          transactions, useful for analyzing customer payment methods and
+          tracking customer behavior.
+      - name: ship_address_key
+        data_type: varchar
+        description: A unique identifier for the shipping address of the order. Can be
+          used to analyze customer shipping patterns and identify popular
+          shipping locations.
+      - name: order_status_key
+        data_type: varchar
+        description: A unique identifier for the order status. Can be used to analyze
+          sales performance by different order statuses.
+      - name: order_date_key
+        data_type: varchar
+        description: A unique identifier for each order date, used for joining and
+          filtering data based on order dates.
+      - name: ship_date_key
+        data_type: varchar
+        description: A unique identifier for the ship date of an order, used for
+          tracking and analyzing shipping performance.
+      - name: due_date_key
+        data_type: varchar
+        description: A unique identifier for the due date of an order. Can be used to
+          analyze order fulfillment and track payment timelines.
+      - name: territory_key
+        data_type: varchar
+        description: A unique identifier for each territory, which can be used to
+          analyze sales performance and trends by territory.
+      - name: orderdate
+        data_type: timestamp_ntz
+        description: The date when the order was placed. Useful for analyzing sales
+          trends over time.
+      - name: onlineorderflag
+        data_type: varchar
+        description: Indicates whether the order was placed online or not, useful for
+          analyzing online sales performance.
+      - name: unitpricediscount
+        data_type: number
+        description: The discount applied to the unit price of a product in a sales
+          order. Useful for analyzing the impact of discounts on sales revenue.
+      - name: salesordernumber
+        data_type: varchar
+        description: The unique identifier for each sales order, which can be used to
+          track and analyze sales performance.
+      - name: salesorderid
+        data_type: number
+        description: The unique identifier for each sales order. This column is crucial
+          for tracking and analyzing individual sales orders. It can be used to
+          join with other tables to gather additional information about the
+          order, such as customer details, product details, and order status.
+          Data analysts can use this column to analyze sales trends, customer
+          behavior, and order fulfillment efficiency. They can also use it to
+          identify and investigate specific sales orders for further analysis or
+          troubleshooting.
+      - name: salesorderdetailid
+        data_type: number
+        description: The unique identifier for each sales order detail. Can be used to
+          track and analyze individual sales transactions.
+      - name: unitprice
+        data_type: number
+        description: The price of a single unit of the product. Useful for calculating
+          revenue and analyzing pricing trends.
+      - name: orderqty
+        data_type: number
+        description: The quantity of products ordered in a sales order. Useful for
+          analyzing sales volume and demand patterns.
+      - name: revenue
+        data_type: number
+        description: The total revenue generated from the sales order detail, which can
+          be used to analyze sales performance and track revenue trends over
+          time.
+      - name: salesamount
+        data_type: number
+        description: The total amount of sales for each sales order detail, calculated
+          by multiplying the unit price of the product by the order quantity.
+          Useful for analyzing revenue, sales performance, and identifying
+          top-selling products.
+      - name: totaldiscount
+        data_type: number
+        description: The total discount applied to the sales order detail, representing
+          the sum of all discounts applied to the individual line items. Useful
+          for analyzing discount impact on sales revenue.
+      - name: taxamt
+        data_type: number
+        description: The amount of tax applied to the sales order. Useful for analyzing
+          tax revenue and calculating tax rate.
