@@ -12,4 +12,10 @@
     "workbench.preferredLightColorTheme": "Default Light Modern",
     "turntable.dbtVersion": "1.7",
     "turntable.warehouse": "snowflake",
+    "dbt.lineage.showNonSelectEdges": true,
+    "dbt.deferConfigPerProject": {
+        "": {
+            "deferToProduction": false
+        }
+    },
 }
