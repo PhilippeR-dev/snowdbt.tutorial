@@ -27,4 +27,4 @@ left join {{ ref("stg_raw_data__address") }} on stg_raw_data__address.addressid 
 left join {{ ref('int_stateprovince') }} on int_stateprovince.stateprovinceid = stg_raw_data__address.stateprovinceid
 left join {{ ref('int_countryregion') }} on int_countryregion.countryregioncode = int_stateprovince.countryregioncode
 where persontype = 'IN'
-and addresstypeid = 2
+  and addresstypeid = 2
