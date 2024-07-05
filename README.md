@@ -42,3 +42,56 @@ Pour exécuter des tests :
 ## Modèle Datamart Sales < Cible >
 
 ![1720108019504](image/README/1720108019504.png)
+
+## dbt Data Pipeline < Transformation >
+
+![1720174404669](image/README/1720174404669.png)
+
+### Main components list
+
+Views on Source tables : ( folder 1_staging )
+
+* stg_raw_data__address
+* stg_raw_data__businessentityaddress
+* stg_raw_data__countryregion
+* stg_raw_data__customer
+* stg_raw_data__person
+* stg_raw_data__product
+* stg_raw_data__productcategory
+* stg_raw_data__productsubcategory
+* stg_raw_data__salesorderheader
+* stg_raw_data__salesorderdetail
+* stg_raw_data__salesterritory
+* stg_raw_data__stateprovince
+
+Transient Tables for intermediate transformations : ( folder 2_intermediate )
+
+* int_product
+* int_productcategory
+* int_productsubcategory
+* int_countryregion
+* int_stateprovince
+* int_person
+* int_salesorderheader
+* int_salesterritory
+
+Permanent Tables for the final datamart : ( folder 3_marts )
+
+* dim_address
+* dim_customer
+* dim_date
+* dim_orderstatus
+* dim_product
+* dim_territory
+* fct_sales
+
+### Data Preparation (intermediate transformations)
+
+* Product
+    *to cast or convert and to rename the following data : ProductName, ProductCategory, ProductSubCategory*
+* Person
+    *blabla...*
+* Sales Territory, State Province
+    *blabla...*
+* Sales Order Header
+    *blabla...*
