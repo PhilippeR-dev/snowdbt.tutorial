@@ -7,15 +7,15 @@ with source as (
 renamed as (
 
     select
-        addressid,
-        addressline1,
-        addressline2,
-        city,
-        modifieddate,
-        postalcode,
-        spatiallocation,
-        stateprovinceid,
-        rowguid
+        ADDRESSID,
+        ADDRESSLINE1,
+        ADDRESSLINE2,
+        CITY,
+        MODIFIEDDATE,
+        POSTALCODE,
+        SPATIALLOCATION,
+        STATEPROVINCEID,
+        ROWGUID
 
     from source
 

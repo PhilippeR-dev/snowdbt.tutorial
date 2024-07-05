@@ -9,7 +9,7 @@
     "dbt.enableNewQueryPanel": true,
     "workbench.colorTheme": "Default Light Modern",
     "workbench.preferredDarkColorTheme": "Default Dark Modern",
-    "workbench.preferredLightColorTheme": "Default Light Modern",
+    "workbench.preferredLightColorTheme": "Default High Contrast",
     "turntable.dbtVersion": "1.7",
     "turntable.warehouse": "snowflake",
     "dbt.lineage.showNonSelectEdges": true,
